@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil Hanna Afifah & Keluarga</title>
+<style>
+  :root{
+    --bg:#EEF3F1; --kertas:#FFFFFF; --teks:#1F2D2B; --samar:#16035f;
+    --utama:#0c3f9e; --aksen:#8eb7f0; --garis:#D3DEDA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Trebuchet MS",Verdana,sans-serif;background:var(--bg);color:var(--teks);line-height:1.6;padding:24px 16px; display: flex; flex-direction: column; min-height: 100vh;}
+  .wrap{max-width:760px;margin:0 auto; flex: 1; width: 100%;}
+  .tab{display:flex;gap:8px;margin-bottom:16px}
+  .tab button{flex:1;padding:12px;border:2px solid var(--utama);background:transparent;color:var(--utama);
+    font:inherit;font-weight:bold;border-radius:10px;cursor:pointer}
+  .tab button[aria-selected="true"]{background:var(--utama);color:#fff}
+  .tab button:focus-visible{outline:3px solid var(--aksen);outline-offset:2px}
+  .kartu{background:var(--kertas);border:1px solid var(--garis);border-radius:16px;overflow:hidden}
+  
+  /* KEPALA DENGAN BACKGROUND PEMANDANGAN */
+  .kepala{
+    background-image: url('langiit biru.jpg'); /* Pastikan nama file gambar sesuai */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 32px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+  }
+  .kepala::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Efek gelap agar teks lebih kontras */
+    z-index: 1;
+  }
+  .kepala > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* STYLING FOTO PROFIL UTAMA */
+  .foto-profil {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--aksen);
+    flex: none;
+    background-color: var(--aksen);
+  }
+
+  .foto{width:96px;height:96px;border-radius:50%;background:var(--aksen);color:var(--teks);
+    display:grid;place-items:center;font:bold 36px Georgia,serif;flex:none}
+  .kepala h1{font:bold 28px Georgia,serif}
+  .kepala p{opacity:.9}
+  .isi{padding:28px}
+  section{margin-bottom:24px}
+  section:last-child{margin-bottom:0}
+  h2{font:bold 18px Georgia,serif;color:var(--utama);border-bottom:2px solid var(--aksen);
+    display:inline-block;margin-bottom:10px}
+  ul{padding-left:20px}
+  li{margin-bottom:4px}
+  
+  /* DATA DIRI UTAMA */
+  .data{display:grid;grid-template-columns:140px 1fr;gap:6px 12px}
+  .data dt{color:var(--samar)}
+  
+  /* STYLING ANGGOTA KELUARGA & FOTO MEREKA */
+  .anggota{display:grid;grid-template-columns:1fr;gap:20px}
+  .anggota-item{
+    border:1px solid var(--garis);
+    border-radius:12px;
+    padding:20px;
+    background: #fafcfb;
+    display:flex;
+    gap:20px;
+    align-items: flex-start;
+  }
+  .foto-anggota{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--utama);
+    background-color: var(--garis);
+    flex: none;
+  }
+  .info-anggota {
+    flex: 1;
+  }
+  .info-anggota h3{font:bold 18px Georgia,serif;color:var(--utama);margin-bottom:8px;}
+  
+  /* TABEL DETAIL KELUARGA */
+  .data-keluarga{display:grid;grid-template-columns:120px 1fr;gap:4px 12px;font-size: 14px;}
+  .data-keluarga dt{color:var(--samar); font-weight: bold;}
+
+  /* STYLING FOOTER BAWAH */
+  .footer-web {
+    text-align: center;
+    margin-top: 32px;
+    padding: 16px;
+    color: var(--samar);
+    font-size: 14px;
+    border-top: 1px solid var(--garis);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  [hidden]{display:none}
+  @media(max-width:520px){
+    .kepala{flex-direction:column;text-align:center}
+    .data{grid-template-columns:1fr}
+    .anggota-item{flex-direction:column;align-items:center;text-align:center;}
+    .data-keluarga{grid-template-columns:1fr; text-align: left;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="tab" role="tablist">
+    <button role="tab" id="t-saya" aria-selected="true" aria-controls="saya">Profil Saya</button>
+    <button role="tab" id="t-keluarga" aria-selected="false" aria-controls="keluarga">Profil Keluarga</button>
+  </div>
+
+  <!-- PROFIL SENDIRI -->
+  <article class="kartu" id="saya" role="tabpanel" aria-labelledby="t-saya">
+    <header class="kepala">
+      <img class="foto-profil" src="foto_saya.jpg" alt="Foto Hanna Afifah">
+      <div>
+        <h1>Hanna Afifah</h1>
+        <p>Mahasiswa Sistem Informasi</p>
+      </div>
+    </header>
+    <div class="isi">
+      <section>
+        <h2>Tentang Saya</h2>
+        <p>Saya Hanna Afifah, mahasiswa Sistem Informasi yang tertarik pada pengelolaan data,
+        administrasi, dan pengembangan sistem informasi. Saya terbiasa bekerja rapi, teliti, dan mau belajar hal baru.</p>
+      </section>
+      <section>
+        <h2>Data Diri</h2>
+        <dl class="data">
+          <dt>Nama</dt><dd>Hanna Afifah</dd>
+          <dt>Status</dt><dd>Mahasiswa Aktif</dd>
+          <dt>Program Studi</dt><dd>Sistem Informasi</dd>
+          <dt>No. Telepon</dt><dd>081573168302</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Pengalaman</h2>
+        <p><strong>Praktik Kerja Lapangan (PKL) 2024 - 2025</strong><br>
+        Universitas Kuningan (Uniku) &ndash; Bagian BAKKUP </p>
+        <ul>
+          <li>Membantu pekerjaan administrasi dan surat-menyurat.</li>
+          <li>Mengelola dan mengarsipkan dokumen.</li>
+          <li>Mendukung kegiatan operasional harian dibagian umum.</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <!-- PROFIL KELUARGA -->
+  <article class="kartu" id="keluarga" role="tabpanel" aria-labelledby="t-keluarga" hidden>
+    <header class="kepala">
+      <div class="foto" aria-hidden="true">K</div>
+      <div>
+        <h1>Keluarga</h1>
+        <p>KELUARGA CEMARA</p>
+      </div>
+    </header>
+    <div class="isi">
+      <section>
+        <h2>Tentang Keluarga</h2>
+        <p>Keluarga kami percaya bahwa rumah bukan sekadar tempat tinggal, tapi tempat untuk saling menguatkan.</p>
+      </section>
+      
+      <section>
+        <h2>Anggota Keluarga</h2>
+        <div class="anggota">
+          
+          <!-- Ayah -->
+          <div class="anggota-item">
+            <img class="foto-anggota" src="foto_ayah.jpeg" alt="Foto Ayah">
+            <div class="info-anggota">
+              <h3>Ayah</h3>
+              <dl class="data-keluarga">
+                <dt>Nama</dt><dd>Ahmad</dd>
+                <dt>Status</dt><dd>Kepala Keluarga</dd>
+                <dt>No. Telepon</dt><dd>08xxxxxxxxxx</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Ibu -->
+          <div class="anggota-item">
+            <img class="foto-anggota" src="foto mamah.jpeg" alt="Foto Ibu">
+            <div class="info-anggota">
+              <h3>Ibu</h3>
+              <dl class="data-keluarga">
+                <dt>Nama</dt><dd>Aen Nurfalah</dd>
+                <dt>Status</dt><dd>Istri</dd>
+                <dt>No. Telepon</dt><dd>08xxxxxxxxxx</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Anak -->
+          <div class="anggota-item">
+            <img class="foto-anggota" src="foto_saya.jpg" alt="Foto Hanna Afifah">
+            <div class="info-anggota">
+              <h3>Anak</h3>
+              <dl class="data-keluarga">
+                <dt>Nama</dt><dd>HANNA AFIFAH</dd>
+                <dt>Status</dt><dd>Mahasiswa / Anak</dd>
+                <dt>No. Telepon</dt><dd>08xxxxxxxxxx</dd>
+              </dl>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </article>
+
+</div>
+
+<!-- FOOTER PALING BAWAH -->
+<footer class="footer-web">
+  Web Profil Pribadi & Profil Keluarga &copy; 2026 Hanna Afifah
+</footer>
+
+<script>
+  const tombol = document.querySelectorAll('[role="tab"]');
+  const panel = { 't-saya': document.getElementById('saya'), 't-keluarga': document.getElementById('keluarga') };
+  tombol.forEach(b => b.addEventListener('click', () => {
+    tombol.forEach(x => {
+      const aktif = x === b;
+      x.setAttribute('aria-selected', aktif);
+      panel[x.id].hidden = !aktif;
+    });
+  }));
+</script>
+</body>
+</html>
